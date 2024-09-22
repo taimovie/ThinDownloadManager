@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
+//apply plugin: 'maven-publish'
 
 version = "1.3.0"
 group = "com.mani"
@@ -43,8 +43,9 @@ android {
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            // This block can be removed entirely
             afterEvaluate {
-                from components.release // Ensure you're publishing the AAR
+                from components.release
             }
 
             groupId = 'com.mani'
@@ -52,7 +53,6 @@ publishing {
             version = '1.3.0'
 
             pom {
-                // Use displayName instead of name to avoid conflicts
                 displayName = 'ThinDownloadManager'
                 description = 'A library to download files without using the DOWNLOAD_WITHOUT_NOTIFICATION permission'
                 url = 'https://github.com/taimovie/ThinDownloadManager'
@@ -82,8 +82,9 @@ publishing {
     }
 
     repositories {
-        mavenLocal()
+        //mavenLocal()
     }
 }
+
 
 
