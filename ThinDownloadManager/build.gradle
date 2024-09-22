@@ -43,9 +43,8 @@ android {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            // Publish the AAR file
             afterEvaluate {
-                from components.release
+                from components.release // Ensure you're publishing the AAR
             }
 
             groupId = 'com.mani'
@@ -53,7 +52,8 @@ publishing {
             version = '1.3.0'
 
             pom {
-                name = 'ThinDownloadManager'
+                // Use displayName instead of name to avoid conflicts
+                displayName = 'ThinDownloadManager'
                 description = 'A library to download files without using the DOWNLOAD_WITHOUT_NOTIFICATION permission'
                 url = 'https://github.com/taimovie/ThinDownloadManager'
 
@@ -85,4 +85,5 @@ publishing {
         mavenLocal()
     }
 }
+
 
